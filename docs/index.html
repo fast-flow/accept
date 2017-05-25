@@ -2,156 +2,916 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>input accept</title>
+	<title>html5 input accept属性兼容性测试 (20170525)</title>
 	<style>
-		.err { color:red;}
-		.info { color:blue;}
+		.error {color:red;}
+		.info {color: blue;}
+		table {
+			border-collapse: collapse;
+		    border: 1px solid #ccc;
+		    text-align: left;
+		    width: 100%;
+		}
+		table th {
+			text-align: left;
+		    border: 1px solid #ccc;
+		    line-height: 18px;
+		    font-size: 14px;
+		    font-weight: bold;
+		    color: #000;
+		}
+		table td {
+			text-align: left;
+		    border: 1px solid #ccc;
+		    line-height: 18px;
+		    font-size: 12px;
+		    color: #666;
+		}
+		caption {
+			text-align: right;
+		    line-height: 22px;
+		    font-size: 12px;
+		    color: #666;
+		}
 	</style>
 </head>
 <body>
-	<h2> html5 input accept (20170523)</h2>
+
+	<h2> html5 input accept ( 测试于20170523 )</h2>
 
 	<hr/>
-	<div class="err">
+	<div class="error">
 		Notice:<br />
-		accept="--/*" 会有6秒左右延迟, 采用详细枚举的方式
+		accept="--/*" chrome会有6秒左右延迟, 采用详细枚举的方式
 	</div>
-	<hr/>
-	<h4> .** 直接文件名后缀 <br/>
-		<i class="info">(chrome firefox 支持所有.**后缀文件名)</i><br/>
-		<i class="info">(Safari 一个都不支持)</i><br/>
-	</h4>
-	accept=".gif"
-	<input type="file" accept=".gif" /><br/>
-	accept=".less"
-	<input type="file" accept=".less" /><br/>
-	accept=".md"
-	<input type="file" accept=".md" /><br/>
-	accept=".jpg" (chrome:*.jpe,*.jpeg,*.jpg)(firefox:*.jpe)
-	<input type="file" accept=".jpg" /><br/>
-	accept=".jpeg" (chrome:*.jpe,*.jpeg,*.jpg)(firefox:*.jpeg)
-	<input type="file" accept=".jpeg" /><br/>
-	accept=".jpe" (chrome:*.jpe,*.jpeg,*.jpg)(firefox:*.jpe)
-	<input type="file" accept=".jpe" /><br/>
-	accept=".svg" <i class="info">(chrome 延迟较大)</i>
-	<input type="file" accept=".svg" /><br/>
-	accept=".php"
-	<input type="file" accept=".php" /><br/>
-	accept=".pdf"
-	<input type="file" accept=".pdf" /><br/>
-	accept=".zip"
-	<input type="file" accept=".zip" /><br/>
-	accept=".7z"
-	<input type="file" accept=".7z" /><br/>
-	accept=".rar" <i class="info">(chrome 延迟较大)</i>
-	<input type="file" accept=".7z" /><br/>
-	accept=".html" (chrome:*.html,*.htm)(firefox:*.html)
-	<input type="file" accept=".html" /><br/>
-	accept=".htm" (chrome:*.html,*.htm)(firefox:*.htm)
-	<input type="file" accept=".htm" /><br/>
+	<table>
+		<caption>支持文件格式为空即默认支持.**文件格式 或/后结尾文件格式</caption>
+		<thead>
+			<tr>
+				<th>序号</th>
+				<th>测试内容</th>
+				<th>测试</th>
+				<th colspan="2">chrome</th>
+				<th colspan="2">safari</th>
+				<th colspan="2">firefox</th>
+			</tr>
+			<tr>
+				<th width="2%"></th>
+				<th width="8%"></th>
+				<th width="14%"></th>
+				<th width="11%">支持文件格式</th>
+				<th width="11%">备注</th>
+				<th width="11%">支持文件格式</th>
+				<th width="11%">备注</th>
+				<th width="11%">支持文件格式</th>
+				<th width="11%">备注</th>
+			</tr>
+		</thead>
+		<tbody id="tbody">
+			
+		</tbody>
+	</table>
 
+<script id="config_data" text="javacript/json" >
+// "_accept":"accept测试属性",
+// "_supported_format":"支持文件格式: 为空字符串,即值默认为accept测试属性 | 为false,即不支持",
+// "_remark":"测试结果备注",
+var data = [
+	{
+		"title":".** 直接文件名后缀",
+		"lists":[
+			{
+				"accept":".gif",
+				"chrome":{
+					"supported_format":"",
+					"tip":""
+				},
+				"safari":{
+					"supported_format":false,
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":"",
+					"tip":""
+				},
+			},{
+				"accept":".less",
+				"chrome":{
+					"supported_format":"",
+					"tip":""
+				},
+				"safari":{
+					"supported_format":false,
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":"",
+					"tip":""
+				},
+			},{
+				"accept":".md",
+				"chrome":{
+					"supported_format":"",
+					"tip":""
+				},
+				"safari":{
+					"supported_format":false,
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":"",
+					"tip":""
+				},
+			},{
+				"accept":".jpg",
+				"chrome":{
+					"supported_format":".jpe,.jpeg,.jpg",
+					"tip":""
+				},
+				"safari":{
+					"supported_format":false,
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":".jpe",
+					"tip":""
+				},
+			},{
+				"accept":".jpeg",
+				"chrome":{
+					"supported_format":".jpe,.jpeg,.jpg",
+					"tip":""
+				},
+				"safari":{
+					"supported_format":false,
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":".jpeg",
+					"tip":""
+				},
+			},{
+				"accept":".jpe",
+				"chrome":{
+					"supported_format":".jpe,.jpeg,.jpg",
+					"tip":""
+				},
+				"safari":{
+					"supported_format":false,
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":":*.jpe",
+					"tip":""
+				},
+			},{
+				"accept":".svg",
+				"chrome":{
+					"supported_format":"",
+					"tip":"延迟6s左右"
+				},
+				"safari":{
+					"supported_format":false,
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":"",
+					"tip":""
+				},
+			},{
+				"accept":".php",
+				"chrome":{
+					"supported_format":"",
+					"tip":""
+				},
+				"safari":{
+					"supported_format":false,
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":"",
+					"tip":""
+				},
+			},{
+				"accept":".pdf",
+				"chrome":{
+					"supported_format":"",
+					"tip":""
+				},
+				"safari":{
+					"supported_format":false,
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":"",
+					"tip":""
+				},
+			},{
+				"accept":".zip",
+				"chrome":{
+					"supported_format":"",
+					"tip":""
+				},
+				"safari":{
+					"supported_format":false,
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":"",
+					"tip":""
+				},
+			},{
+				"accept":".7z",
+				"chrome":{
+					"supported_format":"",
+					"tip":""
+				},
+				"safari":{
+					"supported_format":false,
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":"",
+					"tip":""
+				},
+			},{
+				"accept":".rar",
+				"chrome":{
+					"supported_format":"",
+					"tip":"延迟较大"
+				},
+				"safari":{
+					"supported_format":false,
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":"",
+					"tip":""
+				},
+			},{
+				"accept":".html",
+				"chrome":{
+					"supported_format":".html,.htm",
+					"tip":""
+				},
+				"safari":{
+					"supported_format":false,
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":".html",
+					"tip":""
+				},
+			},{
+				"accept":".htm",
+				"chrome":{
+					"supported_format":".html,.htm",
+					"tip":""
+				},
+				"safari":{
+					"supported_format":false,
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":".htm",
+					"tip":""
+				},
+			}
+		]
+	},{
+		"title":"image",
+		"lists":[
+			{
+				"accept":"image/*",
+				"chrome":{
+					"supported_format":"",
+					"tip":"chrome延迟"
+				},
+				"safari":{
+					"supported_format":"",
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":"",
+					"tip":""
+				},
+			},{
+				"accept":"image/gif",
+				"chrome":{
+					"supported_format":"",
+					"tip":""
+				},
+				"safari":{
+					"supported_format":"",
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":"",
+					"tip":""
+				},
+			},{
+				"accept":"image/jpeg",
+				"chrome":{
+					"supported_format":".jpe,.jpeg,.jpg",
+					"tip":""
+				},
+				"safari":{
+					"supported_format":".jpe,.jpeg,.jpg",
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":".jpg",
+					"tip":""
+				},
+			},{
+				"accept":"image/jpe",
+				"chrome":{
+					"supported_format":".jpe,.jpeg,.jpg",
+					"tip":""
+				},
+				"safari":{
+					"supported_format":false,
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":false,
+					"tip":""
+				},
+			},{
+				"accept":"image/jpg",
+				"chrome":{
+					"supported_format":".jpe,.jpeg,.jpg",
+					"tip":""
+				},
+				"safari":{
+					"supported_format":".jpeg",
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":".jpeg",
+					"tip":""
+				},
+			},{
+				"accept":"image/jp2",
+				"chrome":{
+					"supported_format":"",
+					"tip":""
+				},
+				"safari":{
+					"supported_format":"",
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":"",
+					"tip":""
+				},
+			},{
+				"accept":"image/png",
+				"chrome":{
+					"supported_format":"",
+					"tip":""
+				},
+				"safari":{
+					"supported_format":"",
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":"",
+					"tip":""
+				},
+			},{
+				"accept":"image/svg",
+				"chrome":{
+					"supported_format":false,
+					"tip":""
+				},
+				"safari":{
+					"supported_format":false,
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":false,
+					"tip":""
+				},
+			},{
+				"accept":"image/bmp",
+				"chrome":{
+					"supported_format":"",
+					"tip":""
+				},
+				"safari":{
+					"supported_format":"",
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":"",
+					"tip":""
+				},
+			},{
+				"accept":"image/gif,image/jpg,image/jpeg,image/png",
+				"chrome":{
+					"supported_format":"",
+					"tip":""
+				},
+				"safari":{
+					"supported_format":"",
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":"",
+					"tip":""
+				},
+			},{
+				"accept":"image/vnd.dwg",
+				"chrome":{
+					"supported_format":false,
+					"tip":""
+				},
+				"safari":{
+					"supported_format":false,
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":false,
+					"tip":""
+				},
+			},{
+				"accept":"image/vnd.dxf",
+				"chrome":{
+					"supported_format":false,
+					"tip":""
+				},
+				"safari":{
+					"supported_format":false,
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":false,
+					"tip":""
+				},
+			}
+		]
+	},{
+		"title":"audio",
+		"lists":[
+			{
+				"accept":"audio/*",
+				"chrome":{
+					"supported_format":"",
+					"tip":"chrome延迟"
+				},
+				"safari":{
+					"supported_format":"",
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":"",
+					"tip":""
+				},
+			},{
+				"accept":"audio/3gpp",
+				"chrome":{
+					"supported_format":"",
+					"tip":""
+				},
+				"safari":{
+					"supported_format":false,
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":false,
+					"tip":""
+				},
+			},{
+				"accept":"audio/basic",
+				"chrome":{
+					"supported_format":".au",
+					"tip":""
+				},
+				"safari":{
+					"supported_format":".au",
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":".au",
+					"tip":""
+				},
+			},{
+				"accept":"audio/mpeg",
+				"chrome":{
+					"supported_format":".mp2,.mp3",
+					"tip":""
+				},
+				"safari":{
+					"supported_format":".mp2,.mp3",
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":".mp3",
+					"tip":""
+				},
+			},{
+				"accept":"audio/mp4",
+				"chrome":{
+					"supported_format":"",
+					"tip":""
+				},
+				"safari":{
+					"supported_format":"",
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":"",
+					"tip":""
+				},
+			},{
+				"accept":"audio/ac3",
+				"chrome":{
+					"supported_format":"",
+					"tip":""
+				},
+				"safari":{
+					"supported_format":"",
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":"",
+					"tip":""
+				},
+			}
+		]
+	},{
+		"title":"video",
+		"lists":[
+			{
+				"accept":"video/*",
+				"chrome":{
+					"supported_format":"",
+					"tip":"chrome延迟"
+				},
+				"safari":{
+					"supported_format":"",
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":"",
+					"tip":""
+				},
+			},{
+				"accept":"video/3gpp",
+				"chrome":{
+					"supported_format":"",
+					"tip":""
+				},
+				"safari":{
+					"supported_format":false,
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":false,
+					"tip":""
+				},
+			},{
+				"accept":"video/mpeg",
+				"chrome":{
+					"supported_format":".mpeg,.mpg",
+					"tip":""
+				},
+				"safari":{
+					"supported_format":".mpeg,.mpg",
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":".mpeg",
+					"tip":""
+				},
+			},{
+				"accept":"video/mp4",
+				"chrome":{
+					"supported_format":"",
+					"tip":""
+				},
+				"safari":{
+					"supported_format":"",
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":"",
+					"tip":""
+				},
+			}
+		]
+	},{
+		"title":"text",
+		"lists":[
+			{
+				"accept":"text/*",
+				"chrome":{
+					"supported_format":"",
+					"tip":"延迟6s左右"
+				},
+				"safari":{
+					"supported_format":"",
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":"",
+					"tip":""
+				},
+			},{
+				"accept":"text/css",
+				"chrome":{
+					"supported_format":"",
+					"tip":""
+				},
+				"safari":{
+					"supported_format":"",
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":"",
+					"tip":""
+				},
+			},{
+				"accept":"text/csv",
+				"chrome":{
+					"supported_format":"",
+					"tip":""
+				},
+				"safari":{
+					"supported_format":"",
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":"",
+					"tip":""
+				},
+			},{
+				"accept":"text/html",
+				"chrome":{
+					"supported_format":".htm,.html",
+					"tip":""
+				},
+				"safari":{
+					"supported_format":".htm,.html",
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":".html",
+					"tip":""
+				},
+			},{
+				"accept":"text/htm",
+				"chrome":{
+					"supported_format":false,
+					"tip":""
+				},
+				"safari":{
+					"supported_format":false,
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":false,
+					"tip":""
+				},
+			},{
+				"accept":"text/javascript",
+				"chrome":{
+					"supported_format":".js",
+					"tip":"延迟6s左右"
+				},
+				"safari":{
+					"supported_format":".js",
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":".js",
+					"tip":""
+				},
+			},{
+				"accept":"text/rtf",
+				"chrome":{
+					"supported_format":"",
+					"tip":""
+				},
+				"safari":{
+					"supported_format":"",
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":"",
+					"tip":""
+				},
+			},{
+				"accept":"text/plain",
+				"chrome":{
+					"supported_format":".txt,.csv,.js,.php",
+					"tip":""
+				},
+				"safari":{
+					"supported_format":".txt",
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":".txt",
+					"tip":""
+				},
+			}
+		]
+	},{
+		"title":"application",
+		"lists":[
+			{
+				"accept":"application/*",
+				"chrome":{
+					"supported_format":"",
+					"tip":"延迟6s左右"
+				},
+				"safari":{
+					"supported_format":"",
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":"",
+					"tip":""
+				},
+			},{
+				"accept":"application/msword",
+				"chrome":{
+					"supported_format":".doc",
+					"tip":""
+				},
+				"safari":{
+					"supported_format":".doc",
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":".doc",
+					"tip":""
+				},
+			},{
+				"accept":"application/xml-dtd",
+				"chrome":{
+					"supported_format":false,
+					"tip":""
+				},
+				"safari":{
+					"supported_format":false,
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":false,
+					"tip":""
+				},
+			},{
+				"accept":"application/javascript",
+				"chrome":{
+					"supported_format":".js",
+					"tip":"延迟"
+				},
+				"safari":{
+					"supported_format":false,
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":false,
+					"tip":""
+				},
+			},{
+				"accept":"application/json",
+				"chrome":{
+					"supported_format":"",
+					"tip":""
+				},
+				"safari":{
+					"supported_format":"",
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":"",
+					"tip":""
+				},
+			},{
+				"accept":"application/vnd.ms-powerpoint",
+				"chrome":{
+					"supported_format":".ppt",
+					"tip":""
+				},
+				"safari":{
+					"supported_format":".ppt",
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":".ppt",
+					"tip":""
+				},
+			},{
+				"accept":"application/rtf",
+				"chrome":{
+					"supported_format":false,
+					"tip":""
+				},
+				"safari":{
+					"supported_format":false,
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":"",
+					"tip":""
+				},
+			},{
+				"accept":"application/xhtml+xml",
+				"chrome":{
+					"supported_format":".xhtml",
+					"tip":""
+				},
+				"safari":{
+					"supported_format":".xhtml",
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":".xhtml",
+					"tip":""
+				},
+			},{
+				"accept":"application/vnd.ms-excel",
+				"chrome":{
+					"supported_format":".xls",
+					"tip":""
+				},
+				"safari":{
+					"supported_format":".xls",
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":false,
+					"tip":""
+				},
+			},{
+				"accept":"application/xml",
+				"chrome":{
+					"supported_format":".xml,.xhtml",
+					"tip":"延迟"
+				},
+				"safari":{
+					"supported_format":".xml",
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":".xml",
+					"tip":""
+				},
+			},{
+				"accept":"application/zip",
+				"chrome":{
+					"supported_format":"",
+					"tip":"延迟"
+				},
+				"safari":{
+					"supported_format":"",
+					"tip":""
+				},
+				"firefox":{
+					"supported_format":"",
+					"tip":""
+				},
+			}
+		]
+	}
+]
+</script>
+<script>
+	data.map(function(pItem,pIndex){
+		// `<tr><td colspan="6">`+pItem.title+`</td></tr>`
+		// document.getElementById('tbody').appendChild()
+		var pNode = document.createElement("tr");   
+		pNode.setAttribute('style','background:#f1f1f1');   
+		pNode.innerHTML = `<td>`+ ( pIndex + 1 ) +`</td>
+							<td colspan="8">`+pItem.title+`</td>`;
+		document.getElementById("tbody").appendChild(pNode);
 
-	<hr/>
-	<h4> 1. image </h4>
-	1.1 accept="image/*" <i class="err">(不建议使用)</i>
-	<input type="file" accept="image/*" /><br/>
-	1.2 accept="image/gif"
-	<input type="file" accept="image/gif" /><br/>
-	1.3 accept="image/jpeg" (chrome,safari:*.jpe,*.jpeg,*.jpg)(firefox:*.jpg)
-	<input type="file" accept="image/jpeg" /><br/>
-	1.3 accept="image/jpe" (chrome:*.jpe,*.jpeg,*.jpg)(safari,firefox不支持)
-	<input type="file" accept="image/jpe" /><br/>
-	1.3 accept="image/jpg" (chrome:*.jpe,*.jpeg,*.jpg)(safari,firefox:*.jpeg)
-	<input type="file" accept="image/jpg" /><br/>
-	1.4 accept="image/jp2" 
-	<input type="file" accept="image/jp2" /><br/>
-	1.5 accept="image/png"
-	<input type="file" accept="image/png" /><br/>
-	1.6 accept="image/svg" <i class="info">(chrome,firefox,safari 不支持)</i>
-	<input type="file" accept="image/svg" /><br/>
-	1.7 accept="image/bmp"
-	<input type="file" accept="image/bmp" /><br/>
-	1.8 accept="image/gif,image/jpg,image/jpeg,image/png,image/svg"
-	<input type="file" accept="image/gif,image/jpg,image/jpeg,image/png,image/svg" /><br/>
-	1.9 accept="image/vnd.dwg" (*.dwg) <i class="info">(chrome,safari,firefox 不支持)</i>
-	<input type="file" accept="image/vnd.dwg" /><br/>
-	1.10 accept="image/vnd.dxf" (*.dxf) <i class="info">(chrome,safari,firefox 不支持)</i>
-	<input type="file" accept="image/vnd.dxf" /><br/>
+		pItem.lists.map(function(sItem,sIndex){
+			var sNode = document.createElement("tr");
+			var chrome_supported_format_html = sItem.chrome.supported_format === false ? '<span class="error">不支持</span>' : sItem.chrome.supported_format ,
+				chrome_tip_html = /\S/.test(sItem.chrome.tip) ? '<span class="info">'+sItem.chrome.tip+'</span>' : '',
+				safari_supported_format_html = sItem.safari.supported_format === false ? '<span class="error">不支持</span>' : sItem.safari.supported_format ,
+				safari_tip_html = /\S/.test(sItem.safari.tip) ? '<span class="info">'+sItem.safari.tip+'</span>' : '',
+				firefox_supported_format_html = sItem.firefox.supported_format === false ? '<span class="error">不支持</span>' : sItem.firefox.supported_format ,
+				firefox_tip_html = /\S/.test(sItem.firefox.tip) ? '<span class="info">'+sItem.firefox.tip+'</span>' : '';
 
-	<hr/>
-	<h4> 2. audio </h4>
-	2.1 accept="audio/*" <i class="err">(不建议使用)</i>
-	<input type="file" accept="audio/*" /><br/>
-	2.2 accept="audio/3gpp" <i class="info">(safari,firefox 不支持)</i>
-	<input type="file" accept="audio/3gpp" /><br/>
-	2.3 accept="audio/ac3"
-	<input type="file" accept="audio/ac3" /><br/>
-	2.4 accept="audio/basic" (*.au)
-	<input type="file" accept="audio/basic" /><br/>
-	2.5 accept="audio/mpeg" (chrome,safari:*.mp2,*.mp3)(firefox:*.mp3)
-	<input type="file" accept="audio/mpeg" /><br/>
-	2.6 accept="audio/mp4" (*.mp4)
-	<input type="file" accept="audio/mp4" /><br/>
-
-	<hr/>
-	<h4> 3. video </h4>
-	3.1 accept="video/*" <i class="err">(不建议使用)</i>
-	<input type="file" accept="video/*" /><br/>
-	3.2 accept="video/3gpp" <i class="info">(safari,firefox 不支持)</i>
-	<input type="file" accept="video/3gpp" /><br/>
-	3.3 accept="video/mpeg" (chrome,safari:*.mpeg,*.mpg)(firefox:*.mpeg)
-	<input type="file" accept="video/mpeg" /><br/>
-	3.4 accept="video/mp4"
-	<input type="file" accept="video/mp4" /><br/>
-
-	<hr/>
-	<h4> 4. text </h4>
-	4.1 accept="text/*" <i class="err">(不建议使用)</i>
-	<input type="file" accept="text/*" /><br/>
-	4.2 accept="text/css"
-	<input type="file" accept="text/css" /><br/>
-	4.3 accept="text/csv"
-	<input type="file" accept="text/csv" /><br/>
-	4.4 accept="text/html" (chrome,safari:*.htm,*.html)(firefox:*.html)
-	<input type="file" accept="text/html" /><br/>
-	4.4 accept="text/htm" (chrome,safari,firefox不支持)
-	<input type="file" accept="text/htm" /><br/>
-	4.5 accept="text/javascript" (*.js) <i class="info">(chrome 延迟较大)</i>
-	<input type="file" accept="text/javascript" /><br/>
-	4.6 accept="text/rtf"
-	<input type="file" accept="text/rtf" /><br/>
-	4.7 accept="text/plain" (chrome: *.txt,*.csv,*.js,*.php)(safari,firefox:*.txt)
-	<input type="file" accept="text/plain" /><br/>
-	4.8 accept="text/xml" (chrome: *.xml,*.xhtml)(safari,firefox:*.xml) <i class="info">(chrome 延迟较大)</i>
-	<input type="file" accept="text/xml" /><br/>
-
-
-	<hr/>
-	<h4> 5. application </h4>
-	5.1 accept="application/*" <i class="err">(不建议使用)</i>
-	<input type="file" accept="application/*" /><br/>
-	5.2 accept="application/msword"  (*.doc)
-	<input type="file" accept="application/msword" /><br/> 
-	5.3 accept="application/xml-dtd" (*.dtd) <i class="info">(chrome,safari,firefox 不支持)</i>
-	<input type="file" accept="application/xml-dtd" /><br/>
-	5.3 accept="application/dtd" (*.dtd) <i class="info">(chrome,safari,firefox 不支持)</i>
-	<input type="file" accept="application/dtd" /><br/>
-	5.4 accept="application/javascript" (*.js) (safari,firefox 不支持)<i class="info">(chrome 延迟较大)</i>
-	<input type="file" accept="application/javascript" /><br/>
-	5.5 accept="application/json" 
-	<input type="file" accept="application/json" /><br/>
-	5.6 accept="application/vnd.ms-powerpoint" (*.ppt) 
-	<input type="file" accept="application/vnd.ms-powerpoint" /><br/>
-	5.7 accept="application/rtf" (*.rtf) <i class="info">(chrome,safari 不支持)</i>
-	<input type="file" accept="application/rtf" /><br/>
-	5.8 accept="application/xhtml+xml" (*.xhtml)
-	<input type="file" accept="application/xhtml+xml" /><br/>
-	5.9 accept="application/vnd.ms-excel" (*.xls) (firefox 不支持)
-	<input type="file" accept="application/vnd.ms-excel" /><br/>
-	5.10 accept="application/xml" (chrome:*.xml,*.xhtml)(safari,firefox:*.xml) <i class="info">(chrome 延迟较大)</i>
-	<input type="file" accept="application/xml" /><br/>
-	5.11 accept="application/zip" <i class="info">(chrome 延迟较大)</i>
-	<input type="file" accept="application/zip" /><br/>
+			sNode.innerHTML = `<td>`+( pIndex + 1 )+`.`+( sIndex + 1 )+`</td>
+								<td> accept="`+sItem.accept+`" </td>
+								<td> <input type="file" accept="`+sItem.accept+`" /> </td>
+								<td>`+chrome_supported_format_html+`</td>
+								<td>`+chrome_tip_html+`</td>
+								<td>`+safari_supported_format_html+`</td>
+								<td>`+safari_tip_html+`</td>
+								<td>`+firefox_supported_format_html+`</td>
+								<td>`+firefox_tip_html+`</td>`
+			document.getElementById("tbody").appendChild(sNode);
+		})
+	})
+</script>
 
 </body>
 </html>
