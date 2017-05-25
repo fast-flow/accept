@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>input accept</title>
+	<style>
+		.err { color:red;}
+		.info { color:blue;}
+	</style>
+</head>
+<body>
+	<h2> html5 input accept (20170523)</h2>
+
+	<hr/>
+	<div class="err">
+		Notice:<br />
+		accept="--/*" 会有6秒左右延迟, 采用详细枚举的方式
+	</div>
+	<hr/>
+	<h4> .** 直接文件名后缀 <br/>
+		<i class="info">(chrome firefox 支持所有.**后缀文件名)</i><br/>
+		<i class="info">(Safari 一个都不支持)</i><br/>
+	</h4>
+	accept=".gif"
+	<input type="file" accept=".gif" /><br/>
+	accept=".less"
+	<input type="file" accept=".less" /><br/>
+	accept=".md"
+	<input type="file" accept=".md" /><br/>
+	accept=".jpg" (chrome:*.jpe,*.jpeg,*.jpg)(firefox:*.jpe)
+	<input type="file" accept=".jpg" /><br/>
+	accept=".jpeg" (chrome:*.jpe,*.jpeg,*.jpg)(firefox:*.jpeg)
+	<input type="file" accept=".jpeg" /><br/>
+	accept=".jpe" (chrome:*.jpe,*.jpeg,*.jpg)(firefox:*.jpe)
+	<input type="file" accept=".jpe" /><br/>
+	accept=".svg" <i class="info">(chrome 延迟较大)</i>
+	<input type="file" accept=".svg" /><br/>
+	accept=".php"
+	<input type="file" accept=".php" /><br/>
+	accept=".pdf"
+	<input type="file" accept=".pdf" /><br/>
+	accept=".zip"
+	<input type="file" accept=".zip" /><br/>
+	accept=".7z"
+	<input type="file" accept=".7z" /><br/>
+	accept=".rar" <i class="info">(chrome 延迟较大)</i>
+	<input type="file" accept=".7z" /><br/>
+	accept=".html" (chrome:*.html,*.htm)(firefox:*.html)
+	<input type="file" accept=".html" /><br/>
+	accept=".htm" (chrome:*.html,*.htm)(firefox:*.htm)
+	<input type="file" accept=".htm" /><br/>
+
+
+	<hr/>
+	<h4> 1. image </h4>
+	1.1 accept="image/*" <i class="err">(不建议使用)</i>
+	<input type="file" accept="image/*" /><br/>
+	1.2 accept="image/gif"
+	<input type="file" accept="image/gif" /><br/>
+	1.3 accept="image/jpeg" (chrome,safari:*.jpe,*.jpeg,*.jpg)(firefox:*.jpg)
+	<input type="file" accept="image/jpeg" /><br/>
+	1.3 accept="image/jpe" (chrome:*.jpe,*.jpeg,*.jpg)(safari,firefox不支持)
+	<input type="file" accept="image/jpe" /><br/>
+	1.3 accept="image/jpg" (chrome:*.jpe,*.jpeg,*.jpg)(safari,firefox:*.jpeg)
+	<input type="file" accept="image/jpg" /><br/>
+	1.4 accept="image/jp2" 
+	<input type="file" accept="image/jp2" /><br/>
+	1.5 accept="image/png"
+	<input type="file" accept="image/png" /><br/>
+	1.6 accept="image/svg" <i class="info">(chrome,firefox,safari 不支持)</i>
+	<input type="file" accept="image/svg" /><br/>
+	1.7 accept="image/bmp"
+	<input type="file" accept="image/bmp" /><br/>
+	1.8 accept="image/gif,image/jpg,image/jpeg,image/png,image/svg"
+	<input type="file" accept="image/gif,image/jpg,image/jpeg,image/png,image/svg" /><br/>
+	1.9 accept="image/vnd.dwg" (*.dwg) <i class="info">(chrome,safari,firefox 不支持)</i>
+	<input type="file" accept="image/vnd.dwg" /><br/>
+	1.10 accept="image/vnd.dxf" (*.dxf) <i class="info">(chrome,safari,firefox 不支持)</i>
+	<input type="file" accept="image/vnd.dxf" /><br/>
+
+	<hr/>
+	<h4> 2. audio </h4>
+	2.1 accept="audio/*" <i class="err">(不建议使用)</i>
+	<input type="file" accept="audio/*" /><br/>
+	2.2 accept="audio/3gpp" <i class="info">(safari,firefox 不支持)</i>
+	<input type="file" accept="audio/3gpp" /><br/>
+	2.3 accept="audio/ac3"
+	<input type="file" accept="audio/ac3" /><br/>
+	2.4 accept="audio/basic" (*.au)
+	<input type="file" accept="audio/basic" /><br/>
+	2.5 accept="audio/mpeg" (chrome,safari:*.mp2,*.mp3)(firefox:*.mp3)
+	<input type="file" accept="audio/mpeg" /><br/>
+	2.6 accept="audio/mp4" (*.mp4)
+	<input type="file" accept="audio/mp4" /><br/>
+
+	<hr/>
+	<h4> 3. video </h4>
+	3.1 accept="video/*" <i class="err">(不建议使用)</i>
+	<input type="file" accept="video/*" /><br/>
+	3.2 accept="video/3gpp" <i class="info">(safari,firefox 不支持)</i>
+	<input type="file" accept="video/3gpp" /><br/>
+	3.3 accept="video/mpeg" (chrome,safari:*.mpeg,*.mpg)(firefox:*.mpeg)
+	<input type="file" accept="video/mpeg" /><br/>
+	3.4 accept="video/mp4"
+	<input type="file" accept="video/mp4" /><br/>
+
+	<hr/>
+	<h4> 4. text </h4>
+	4.1 accept="text/*" <i class="err">(不建议使用)</i>
+	<input type="file" accept="text/*" /><br/>
+	4.2 accept="text/css"
+	<input type="file" accept="text/css" /><br/>
+	4.3 accept="text/csv"
+	<input type="file" accept="text/csv" /><br/>
+	4.4 accept="text/html" (chrome,safari:*.htm,*.html)(firefox:*.html)
+	<input type="file" accept="text/html" /><br/>
+	4.4 accept="text/htm" (chrome,safari,firefox不支持)
+	<input type="file" accept="text/htm" /><br/>
+	4.5 accept="text/javascript" (*.js) <i class="info">(chrome 延迟较大)</i>
+	<input type="file" accept="text/javascript" /><br/>
+	4.6 accept="text/rtf"
+	<input type="file" accept="text/rtf" /><br/>
+	4.7 accept="text/plain" (chrome: *.txt,*.csv,*.js,*.php)(safari,firefox:*.txt)
+	<input type="file" accept="text/plain" /><br/>
+	4.8 accept="text/xml" (chrome: *.xml,*.xhtml)(safari,firefox:*.xml) <i class="info">(chrome 延迟较大)</i>
+	<input type="file" accept="text/xml" /><br/>
+
+
+	<hr/>
+	<h4> 5. application </h4>
+	5.1 accept="application/*" <i class="err">(不建议使用)</i>
+	<input type="file" accept="application/*" /><br/>
+	5.2 accept="application/msword"  (*.doc)
+	<input type="file" accept="application/msword" /><br/> 
+	5.3 accept="application/xml-dtd" (*.dtd) <i class="info">(chrome,safari,firefox 不支持)</i>
+	<input type="file" accept="application/xml-dtd" /><br/>
+	5.3 accept="application/dtd" (*.dtd) <i class="info">(chrome,safari,firefox 不支持)</i>
+	<input type="file" accept="application/dtd" /><br/>
+	5.4 accept="application/javascript" (*.js) (safari,firefox 不支持)<i class="info">(chrome 延迟较大)</i>
+	<input type="file" accept="application/javascript" /><br/>
+	5.5 accept="application/json" 
+	<input type="file" accept="application/json" /><br/>
+	5.6 accept="application/vnd.ms-powerpoint" (*.ppt) 
+	<input type="file" accept="application/vnd.ms-powerpoint" /><br/>
+	5.7 accept="application/rtf" (*.rtf) <i class="info">(chrome,safari 不支持)</i>
+	<input type="file" accept="application/rtf" /><br/>
+	5.8 accept="application/xhtml+xml" (*.xhtml)
+	<input type="file" accept="application/xhtml+xml" /><br/>
+	5.9 accept="application/vnd.ms-excel" (*.xls) (firefox 不支持)
+	<input type="file" accept="application/vnd.ms-excel" /><br/>
+	5.10 accept="application/xml" (chrome:*.xml,*.xhtml)(safari,firefox:*.xml) <i class="info">(chrome 延迟较大)</i>
+	<input type="file" accept="application/xml" /><br/>
+	5.11 accept="application/zip" <i class="info">(chrome 延迟较大)</i>
+	<input type="file" accept="application/zip" /><br/>
+
+</body>
+</html>
