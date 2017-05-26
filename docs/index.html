@@ -882,12 +882,12 @@ var data = [
 </script>
 <script>
 	data.map(function(pItem,pIndex){
-		// `<tr><td colspan="6">`+pItem.title+`</td></tr>`
+		// '<tr><td colspan="6">'+pItem.title+`</td></tr>`
 		// document.getElementById('tbody').appendChild()
 		var pNode = document.createElement("tr");   
 		pNode.setAttribute('style','background:#f1f1f1');   
-		pNode.innerHTML = `<td>`+ ( pIndex + 1 ) +`</td>
-							<td colspan="8">`+pItem.title+`</td>`;
+		pNode.innerHTML = '<td>'+ ( pIndex + 1 ) +'</td>'
+							+'<td colspan="8">'+pItem.title+'</td>';
 		document.getElementById("tbody").appendChild(pNode);
 
 		pItem.lists.map(function(sItem,sIndex){
@@ -899,15 +899,15 @@ var data = [
 				firefox_supported_format_html = sItem.firefox.supported_format === false ? '<span class="error">不支持</span>' : sItem.firefox.supported_format ,
 				firefox_tip_html = /\S/.test(sItem.firefox.tip) ? '<span class="info">'+sItem.firefox.tip+'</span>' : '';
 
-			sNode.innerHTML = `<td>`+( pIndex + 1 )+`.`+( sIndex + 1 )+`</td>
-								<td> accept="`+sItem.accept+`" </td>
-								<td> <input type="file" accept="`+sItem.accept+`" /> </td>
-								<td>`+chrome_supported_format_html+`</td>
-								<td>`+chrome_tip_html+`</td>
-								<td>`+safari_supported_format_html+`</td>
-								<td>`+safari_tip_html+`</td>
-								<td>`+firefox_supported_format_html+`</td>
-								<td>`+firefox_tip_html+`</td>`
+			sNode.innerHTML = '<td>'+( pIndex + 1 )+'.'+( sIndex + 1 )+'</td>'
+								+'<td> accept="'+sItem.accept+'" </td>'
+								+'<td> <input type="file" accept="'+sItem.accept+'" /> </td>'
+								+'<td>'+chrome_supported_format_html+'</td>'
+								+'<td>'+chrome_tip_html+'</td>'
+								+'<td>'+safari_supported_format_html+'</td>'
+								+'<td>'+safari_tip_html+'</td>'
+								+'<td>'+firefox_supported_format_html+'</td>'
+								+'<td>'+firefox_tip_html+'</td>'
 			document.getElementById("tbody").appendChild(sNode);
 		})
 	})
