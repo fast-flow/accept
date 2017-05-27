@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>html5 input accept属性兼容性测试 (20170525)</title>
+	<title>html5 input accept属性兼容性测试 (201705)</title>
 	<style>
 		.error {color:red;}
 		.info {color: blue;}
@@ -26,6 +26,7 @@
 		    line-height: 18px;
 		    font-size: 12px;
 		    color: #666;
+		    word-break: break-all;
 		}
 		caption {
 			text-align: right;
@@ -38,11 +39,10 @@
 <body>
 
 	<h2> html5 input accept ( 测试于20170523 )</h2>
-
 	<hr/>
 	<div class="error">
 		Notice:<br />
-		accept="--/*" chrome会有6秒左右延迟, 采用详细枚举的方式<br/>
+		accept="--/*" chrome会有6秒左右延迟, 采用详细枚举("accept"="image/gif,image/jpg,image/jpeg,image/png")的方式<br/>
 		IE9,IE9-不支持此属性
 	</div>
 	<table>
@@ -56,17 +56,23 @@
 				<th colspan="2">chrome</th>
 				<th colspan="2">safari</th>
 				<th colspan="2">firefox</th>
+				<th colspan="2">IE10</th>
+				<th colspan="2">IE11</th>
 			</tr>
 			<tr>
-				<th width="2%"></th>
+				<th width="3%"></th>
 				<th width="8%"></th>
 				<th width="14%"></th>
 				<th width="11%">支持文件格式</th>
-				<th width="11%">备注</th>
+				<th width="4%">备注</th>
 				<th width="11%">支持文件格式</th>
-				<th width="11%">备注</th>
+				<th width="4%">备注</th>
 				<th width="11%">支持文件格式</th>
-				<th width="11%">备注</th>
+				<th width="4%">备注</th>
+				<th width="11%">支持文件格式</th>
+				<th width="4%">备注</th>
+				<th width="11%">支持文件格式</th>
+				<th width="4%">备注</th>
 			</tr>
 		</thead>
 		<tbody id="tbody">
@@ -96,6 +102,14 @@ var data = [
 					"supported_format":"",
 					"tip":""
 				},
+				"ie10":{
+					"supported_format":"",
+					"tip":""
+				},
+				"ie11":{
+					"supported_format":"",
+					"tip":""
+				},
 			},{
 				"accept":".less",
 				"chrome":{
@@ -107,6 +121,14 @@ var data = [
 					"tip":""
 				},
 				"firefox":{
+					"supported_format":"",
+					"tip":""
+				},
+				"ie10":{
+					"supported_format":"",
+					"tip":""
+				},
+				"ie11":{
 					"supported_format":"",
 					"tip":""
 				},
@@ -124,6 +146,14 @@ var data = [
 					"supported_format":"",
 					"tip":""
 				},
+				"ie10":{
+					"supported_format":"",
+					"tip":""
+				},
+				"ie11":{
+					"supported_format":"",
+					"tip":""
+				},
 			},{
 				"accept":".jpg",
 				"chrome":{
@@ -136,6 +166,14 @@ var data = [
 				},
 				"firefox":{
 					"supported_format":".jpe",
+					"tip":""
+				},
+				"ie10":{
+					"supported_format":"",
+					"tip":""
+				},
+				"ie11":{
+					"supported_format":"",
 					"tip":""
 				},
 			},{
@@ -152,6 +190,14 @@ var data = [
 					"supported_format":".jpeg",
 					"tip":""
 				},
+				"ie10":{
+					"supported_format":"",
+					"tip":""
+				},
+				"ie11":{
+					"supported_format":"",
+					"tip":""
+				},
 			},{
 				"accept":".jpe",
 				"chrome":{
@@ -166,6 +212,14 @@ var data = [
 					"supported_format":":*.jpe",
 					"tip":""
 				},
+				"ie10":{
+					"supported_format":"",
+					"tip":""
+				},
+				"ie11":{
+					"supported_format":"",
+					"tip":""
+				},
 			},{
 				"accept":".svg",
 				"chrome":{
@@ -177,6 +231,14 @@ var data = [
 					"tip":""
 				},
 				"firefox":{
+					"supported_format":"",
+					"tip":""
+				},
+				"ie10":{
+					"supported_format":"",
+					"tip":""
+				},
+				"ie11":{
 					"supported_format":"",
 					"tip":""
 				},
@@ -194,6 +256,14 @@ var data = [
 					"supported_format":"",
 					"tip":""
 				},
+				"ie10":{
+					"supported_format":"",
+					"tip":""
+				},
+				"ie11":{
+					"supported_format":"",
+					"tip":""
+				},
 			},{
 				"accept":".pdf",
 				"chrome":{
@@ -205,6 +275,14 @@ var data = [
 					"tip":""
 				},
 				"firefox":{
+					"supported_format":"",
+					"tip":""
+				},
+				"ie10":{
+					"supported_format":"",
+					"tip":""
+				},
+				"ie11":{
 					"supported_format":"",
 					"tip":""
 				},
@@ -222,6 +300,14 @@ var data = [
 					"supported_format":"",
 					"tip":""
 				},
+				"ie10":{
+					"supported_format":"",
+					"tip":""
+				},
+				"ie11":{
+					"supported_format":"",
+					"tip":""
+				},
 			},{
 				"accept":".7z",
 				"chrome":{
@@ -236,17 +322,33 @@ var data = [
 					"supported_format":"",
 					"tip":""
 				},
+				"ie10":{
+					"supported_format":"",
+					"tip":""
+				},
+				"ie11":{
+					"supported_format":"",
+					"tip":""
+				},
 			},{
 				"accept":".rar",
 				"chrome":{
 					"supported_format":"",
-					"tip":"延迟较大"
+					"tip":"延迟6s左右"
 				},
 				"safari":{
 					"supported_format":false,
 					"tip":""
 				},
 				"firefox":{
+					"supported_format":"",
+					"tip":""
+				},
+				"ie10":{
+					"supported_format":"",
+					"tip":""
+				},
+				"ie11":{
 					"supported_format":"",
 					"tip":""
 				},
@@ -264,6 +366,14 @@ var data = [
 					"supported_format":".html",
 					"tip":""
 				},
+				"ie10":{
+					"supported_format":"",
+					"tip":""
+				},
+				"ie11":{
+					"supported_format":"",
+					"tip":""
+				},
 			},{
 				"accept":".htm",
 				"chrome":{
@@ -278,6 +388,14 @@ var data = [
 					"supported_format":".htm",
 					"tip":""
 				},
+				"ie10":{
+					"supported_format":"",
+					"tip":""
+				},
+				"ie11":{
+					"supported_format":"",
+					"tip":""
+				},
 			}
 		]
 	},{
@@ -287,7 +405,7 @@ var data = [
 				"accept":"image/*",
 				"chrome":{
 					"supported_format":"",
-					"tip":"chrome延迟"
+					"tip":"延迟6s左右"
 				},
 				"safari":{
 					"supported_format":"",
@@ -295,6 +413,14 @@ var data = [
 				},
 				"firefox":{
 					"supported_format":"",
+					"tip":""
+				},
+				"ie10":{
+					"supported_format":".bmp,.emf,.gif,.ico,.jpg,.png,.svg,.tiff,.wdp,.wmf",
+					"tip":""
+				},
+				"ie11":{
+					"supported_format":".bmp,.dds,.emf,.gif,.ico,.jpg,.png,.svg,.tiff,.wdp,.wmf",
 					"tip":""
 				},
 			},{
@@ -308,6 +434,14 @@ var data = [
 					"tip":""
 				},
 				"firefox":{
+					"supported_format":"",
+					"tip":""
+				},
+				"ie10":{
+					"supported_format":"",
+					"tip":""
+				},
+				"ie11":{
 					"supported_format":"",
 					"tip":""
 				},
@@ -325,6 +459,14 @@ var data = [
 					"supported_format":".jpg",
 					"tip":""
 				},
+				"ie10":{
+					"supported_format":false,
+					"tip":""
+				},
+				"ie11":{
+					"supported_format":".jpe,.jpeg,.jpg",
+					"tip":""
+				},
 			},{
 				"accept":"image/jpe",
 				"chrome":{
@@ -336,6 +478,14 @@ var data = [
 					"tip":""
 				},
 				"firefox":{
+					"supported_format":false,
+					"tip":""
+				},
+				"ie10":{
+					"supported_format":false,
+					"tip":""
+				},
+				"ie11":{
 					"supported_format":false,
 					"tip":""
 				},
@@ -353,6 +503,14 @@ var data = [
 					"supported_format":".jpeg",
 					"tip":""
 				},
+				"ie10":{
+					"supported_format":false,
+					"tip":""
+				},
+				"ie11":{
+					"supported_format":false,
+					"tip":""
+				},
 			},{
 				"accept":"image/jp2",
 				"chrome":{
@@ -367,6 +525,14 @@ var data = [
 					"supported_format":"",
 					"tip":""
 				},
+				"ie10":{
+					"supported_format":false,
+					"tip":""
+				},
+				"ie11":{
+					"supported_format":false,
+					"tip":""
+				},
 			},{
 				"accept":"image/png",
 				"chrome":{
@@ -378,6 +544,14 @@ var data = [
 					"tip":""
 				},
 				"firefox":{
+					"supported_format":"",
+					"tip":""
+				},
+				"ie10":{
+					"supported_format":"",
+					"tip":""
+				},
+				"ie11":{
 					"supported_format":"",
 					"tip":""
 				},
@@ -395,6 +569,14 @@ var data = [
 					"supported_format":false,
 					"tip":""
 				},
+				"ie10":{
+					"supported_format":false,
+					"tip":""
+				},
+				"ie11":{
+					"supported_format":false,
+					"tip":""
+				},
 			},{
 				"accept":"image/bmp",
 				"chrome":{
@@ -409,17 +591,11 @@ var data = [
 					"supported_format":"",
 					"tip":""
 				},
-			},{
-				"accept":"image/gif,image/jpg,image/jpeg,image/png",
-				"chrome":{
+				"ie10":{
 					"supported_format":"",
 					"tip":""
 				},
-				"safari":{
-					"supported_format":"",
-					"tip":""
-				},
-				"firefox":{
+				"ie11":{
 					"supported_format":"",
 					"tip":""
 				},
@@ -437,6 +613,14 @@ var data = [
 					"supported_format":false,
 					"tip":""
 				},
+				"ie10":{
+					"supported_format":false,
+					"tip":""
+				},
+				"ie11":{
+					"supported_format":false,
+					"tip":""
+				},
 			},{
 				"accept":"image/vnd.dxf",
 				"chrome":{
@@ -451,6 +635,14 @@ var data = [
 					"supported_format":false,
 					"tip":""
 				},
+				"ie10":{
+					"supported_format":false,
+					"tip":""
+				},
+				"ie11":{
+					"supported_format":false,
+					"tip":""
+				},
 			}
 		]
 	},{
@@ -460,7 +652,7 @@ var data = [
 				"accept":"audio/*",
 				"chrome":{
 					"supported_format":"",
-					"tip":"chrome延迟"
+					"tip":"延迟6s左右"
 				},
 				"safari":{
 					"supported_format":"",
@@ -468,6 +660,14 @@ var data = [
 				},
 				"firefox":{
 					"supported_format":"",
+					"tip":""
+				},
+				"ie10":{
+					"supported_format":".3g2,.3gp,.adts,.aiff,.au,.m3u,.m4a,.mid,.mp3,.wav,.wax,.wma",
+					"tip":""
+				},
+				"ie11":{
+					"supported_format":".3g2,.3gp,.adts,.aiff,.au,.m3u,.m4a,.mid,.mp3,.wav,.wax,.wma",
 					"tip":""
 				},
 			},{
@@ -484,6 +684,14 @@ var data = [
 					"supported_format":false,
 					"tip":""
 				},
+				"ie10":{
+					"supported_format":".3gp",
+					"tip":""
+				},
+				"ie11":{
+					"supported_format":".3gp",
+					"tip":""
+				},
 			},{
 				"accept":"audio/basic",
 				"chrome":{
@@ -495,6 +703,14 @@ var data = [
 					"tip":""
 				},
 				"firefox":{
+					"supported_format":".au",
+					"tip":""
+				},
+				"ie10":{
+					"supported_format":".au",
+					"tip":""
+				},
+				"ie11":{
 					"supported_format":".au",
 					"tip":""
 				},
@@ -512,6 +728,14 @@ var data = [
 					"supported_format":".mp3",
 					"tip":""
 				},
+				"ie10":{
+					"supported_format":".mp2,.mp3",
+					"tip":""
+				},
+				"ie11":{
+					"supported_format":".mp2,.mp3",
+					"tip":""
+				},
 			},{
 				"accept":"audio/mp4",
 				"chrome":{
@@ -524,6 +748,14 @@ var data = [
 				},
 				"firefox":{
 					"supported_format":"",
+					"tip":""
+				},
+				"ie10":{
+					"supported_format":".m4a",
+					"tip":""
+				},
+				"ie11":{
+					"supported_format":".m4a",
 					"tip":""
 				},
 			},{
@@ -540,6 +772,14 @@ var data = [
 					"supported_format":"",
 					"tip":""
 				},
+				"ie10":{
+					"supported_format":false,
+					"tip":""
+				},
+				"ie11":{
+					"supported_format":false,
+					"tip":""
+				},
 			}
 		]
 	},{
@@ -549,7 +789,7 @@ var data = [
 				"accept":"video/*",
 				"chrome":{
 					"supported_format":"",
-					"tip":"chrome延迟"
+					"tip":"延迟6s左右"
 				},
 				"safari":{
 					"supported_format":"",
@@ -557,6 +797,14 @@ var data = [
 				},
 				"firefox":{
 					"supported_format":"",
+					"tip":""
+				},
+				"ie10":{
+					"supported_format":".3g2,.3gp,.avi,.asx,.mov,.mp4,.mpeg,.wm,.wmv,.wmx,.wvx",
+					"tip":""
+				},
+				"ie11":{
+					"supported_format":".3g2,.3gp,.adts,.aiff,.au,.avi,.asx,.m3u,.m4a,.mid,.mov,.mp3,.wax,.wav",
 					"tip":""
 				},
 			},{
@@ -573,6 +821,14 @@ var data = [
 					"supported_format":false,
 					"tip":""
 				},
+				"ie10":{
+					"supported_format":".3gp",
+					"tip":""
+				},
+				"ie11":{
+					"supported_format":".3gp",
+					"tip":""
+				},
 			},{
 				"accept":"video/mpeg",
 				"chrome":{
@@ -587,6 +843,14 @@ var data = [
 					"supported_format":".mpeg",
 					"tip":""
 				},
+				"ie10":{
+					"supported_format":".m1v,.m2v,.mod,.mp2v,.mpa,.mpe,.mpeg,.mpg,.mpv2",
+					"tip":""
+				},
+				"ie11":{
+					"supported_format":".m1v,.m2v,.mod,.mp2v,.mpa,.mpe,.mpeg,.mpg,.mpv2",
+					"tip":""
+				},
 			},{
 				"accept":"video/mp4",
 				"chrome":{
@@ -598,6 +862,14 @@ var data = [
 					"tip":""
 				},
 				"firefox":{
+					"supported_format":"",
+					"tip":""
+				},
+				"ie10":{
+					"supported_format":"",
+					"tip":""
+				},
+				"ie11":{
 					"supported_format":"",
 					"tip":""
 				},
@@ -620,6 +892,14 @@ var data = [
 					"supported_format":"",
 					"tip":""
 				},
+				"ie10":{
+					"supported_format":false,
+					"tip":""
+				},
+				"ie11":{
+					"supported_format":false,
+					"tip":""
+				},
 			},{
 				"accept":"text/css",
 				"chrome":{
@@ -631,6 +911,14 @@ var data = [
 					"tip":""
 				},
 				"firefox":{
+					"supported_format":"",
+					"tip":""
+				},
+				"ie10":{
+					"supported_format":"",
+					"tip":""
+				},
+				"ie11":{
 					"supported_format":"",
 					"tip":""
 				},
@@ -648,6 +936,14 @@ var data = [
 					"supported_format":"",
 					"tip":""
 				},
+				"ie10":{
+					"supported_format":false,
+					"tip":""
+				},
+				"ie11":{
+					"supported_format":false,
+					"tip":""
+				},
 			},{
 				"accept":"text/html",
 				"chrome":{
@@ -660,6 +956,14 @@ var data = [
 				},
 				"firefox":{
 					"supported_format":".html",
+					"tip":""
+				},
+				"ie10":{
+					"supported_format":".htm,.html",
+					"tip":""
+				},
+				"ie11":{
+					"supported_format":".htm,.html",
 					"tip":""
 				},
 			},{
@@ -676,6 +980,14 @@ var data = [
 					"supported_format":false,
 					"tip":""
 				},
+				"ie10":{
+					"supported_format":".htm,.html",
+					"tip":""
+				},
+				"ie11":{
+					"supported_format":".htm,.html",
+					"tip":""
+				},
 			},{
 				"accept":"text/javascript",
 				"chrome":{
@@ -688,6 +1000,14 @@ var data = [
 				},
 				"firefox":{
 					"supported_format":".js",
+					"tip":""
+				},
+				"ie10":{
+					"supported_format":false,
+					"tip":""
+				},
+				"ie11":{
+					"supported_format":false,
 					"tip":""
 				},
 			},{
@@ -704,6 +1024,14 @@ var data = [
 					"supported_format":"",
 					"tip":""
 				},
+				"ie10":{
+					"supported_format":false,
+					"tip":""
+				},
+				"ie11":{
+					"supported_format":false,
+					"tip":""
+				},
 			},{
 				"accept":"text/plain",
 				"chrome":{
@@ -715,6 +1043,14 @@ var data = [
 					"tip":""
 				},
 				"firefox":{
+					"supported_format":".txt",
+					"tip":""
+				},
+				"ie10":{
+					"supported_format":".txt",
+					"tip":""
+				},
+				"ie11":{
 					"supported_format":".txt",
 					"tip":""
 				},
@@ -737,6 +1073,14 @@ var data = [
 					"supported_format":"",
 					"tip":""
 				},
+				"ie10":{
+					"supported_format":false,
+					"tip":""
+				},
+				"ie11":{
+					"supported_format":false,
+					"tip":""
+				},
 			},{
 				"accept":"application/msword",
 				"chrome":{
@@ -749,6 +1093,14 @@ var data = [
 				},
 				"firefox":{
 					"supported_format":".doc",
+					"tip":""
+				},
+				"ie10":{
+					"supported_format":false,
+					"tip":""
+				},
+				"ie11":{
+					"supported_format":false,
 					"tip":""
 				},
 			},{
@@ -765,17 +1117,33 @@ var data = [
 					"supported_format":false,
 					"tip":""
 				},
+				"ie10":{
+					"supported_format":false,
+					"tip":""
+				},
+				"ie11":{
+					"supported_format":false,
+					"tip":""
+				},
 			},{
 				"accept":"application/javascript",
 				"chrome":{
 					"supported_format":".js",
-					"tip":"延迟"
+					"tip":"延迟6s左右"
 				},
 				"safari":{
 					"supported_format":false,
 					"tip":""
 				},
 				"firefox":{
+					"supported_format":false,
+					"tip":""
+				},
+				"ie10":{
+					"supported_format":false,
+					"tip":""
+				},
+				"ie11":{
 					"supported_format":false,
 					"tip":""
 				},
@@ -793,6 +1161,14 @@ var data = [
 					"supported_format":"",
 					"tip":""
 				},
+				"ie10":{
+					"supported_format":false,
+					"tip":""
+				},
+				"ie11":{
+					"supported_format":false,
+					"tip":""
+				},
 			},{
 				"accept":"application/vnd.ms-powerpoint",
 				"chrome":{
@@ -805,6 +1181,14 @@ var data = [
 				},
 				"firefox":{
 					"supported_format":".ppt",
+					"tip":""
+				},
+				"ie10":{
+					"supported_format":false,
+					"tip":""
+				},
+				"ie11":{
+					"supported_format":false,
 					"tip":""
 				},
 			},{
@@ -821,6 +1205,14 @@ var data = [
 					"supported_format":"",
 					"tip":""
 				},
+				"ie10":{
+					"supported_format":false,
+					"tip":""
+				},
+				"ie11":{
+					"supported_format":false,
+					"tip":""
+				},
 			},{
 				"accept":"application/xhtml+xml",
 				"chrome":{
@@ -833,6 +1225,14 @@ var data = [
 				},
 				"firefox":{
 					"supported_format":".xhtml",
+					"tip":""
+				},
+				"ie10":{
+					"supported_format":".xht,.xhtml,.xht",
+					"tip":""
+				},
+				"ie11":{
+					"supported_format":".xht,.xhtml,.xht",
 					"tip":""
 				},
 			},{
@@ -849,17 +1249,33 @@ var data = [
 					"supported_format":false,
 					"tip":""
 				},
+				"ie10":{
+					"supported_format":false,
+					"tip":""
+				},
+				"ie11":{
+					"supported_format":false,
+					"tip":""
+				},
 			},{
 				"accept":"application/xml",
 				"chrome":{
 					"supported_format":".xml,.xhtml",
-					"tip":"延迟"
+					"tip":"延迟6s左右"
 				},
 				"safari":{
 					"supported_format":".xml",
 					"tip":""
 				},
 				"firefox":{
+					"supported_format":".xml",
+					"tip":""
+				},
+				"ie10":{
+					"supported_format":".xml",
+					"tip":""
+				},
+				"ie11":{
 					"supported_format":".xml",
 					"tip":""
 				},
@@ -867,7 +1283,7 @@ var data = [
 				"accept":"application/zip",
 				"chrome":{
 					"supported_format":"",
-					"tip":"延迟"
+					"tip":"延迟6s左右"
 				},
 				"safari":{
 					"supported_format":"",
@@ -875,6 +1291,14 @@ var data = [
 				},
 				"firefox":{
 					"supported_format":"",
+					"tip":""
+				},
+				"ie10":{
+					"supported_format":false,
+					"tip":""
+				},
+				"ie11":{
+					"supported_format":false,
 					"tip":""
 				},
 			}
@@ -889,7 +1313,7 @@ var data = [
 		var pNode = document.createElement("tr");   
 		pNode.setAttribute('style','background:#f1f1f1');   
 		pNode.innerHTML = '<td>'+ ( pIndex + 1 ) +'</td>'
-							+'<td colspan="8">'+pItem.title+'</td>';
+							+'<td colspan="12">'+pItem.title+'</td>';
 		document.getElementById("tbody").appendChild(pNode);
 
 		pItem.lists.map(function(sItem,sIndex){
@@ -899,7 +1323,11 @@ var data = [
 				safari_supported_format_html = sItem.safari.supported_format === false ? '<span class="error">不支持</span>' : sItem.safari.supported_format ,
 				safari_tip_html = /\S/.test(sItem.safari.tip) ? '<span class="info">'+sItem.safari.tip+'</span>' : '',
 				firefox_supported_format_html = sItem.firefox.supported_format === false ? '<span class="error">不支持</span>' : sItem.firefox.supported_format ,
-				firefox_tip_html = /\S/.test(sItem.firefox.tip) ? '<span class="info">'+sItem.firefox.tip+'</span>' : '';
+				firefox_tip_html = /\S/.test(sItem.firefox.tip) ? '<span class="info">'+sItem.firefox.tip+'</span>' : '',
+				ie10_supported_format_html = sItem.ie10.supported_format === false ? '<span class="error">不支持</span>' : sItem.ie10.supported_format ,
+				ie10_tip_html = /\S/.test(sItem.ie10.tip) ? '<span class="info">'+sItem.ie10.tip+'</span>' : '',
+				ie11_supported_format_html = sItem.ie11.supported_format === false ? '<span class="error">不支持</span>' : sItem.ie11.supported_format ,
+				ie11_tip_html = /\S/.test(sItem.ie11.tip) ? '<span class="info">'+sItem.ie11.tip+'</span>' : '';
 
 			sNode.innerHTML = '<td>'+( pIndex + 1 )+'.'+( sIndex + 1 )+'</td>'
 								+'<td> accept="'+sItem.accept+'" </td>'
@@ -910,6 +1338,10 @@ var data = [
 								+'<td>'+safari_tip_html+'</td>'
 								+'<td>'+firefox_supported_format_html+'</td>'
 								+'<td>'+firefox_tip_html+'</td>'
+								+'<td>'+ie10_supported_format_html+'</td>'
+								+'<td>'+ie10_tip_html+'</td>'
+								+'<td>'+ie11_supported_format_html+'</td>'
+								+'<td>'+ie11_tip_html+'</td>'
 			document.getElementById("tbody").appendChild(sNode);
 		})
 	})
